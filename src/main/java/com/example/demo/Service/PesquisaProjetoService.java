@@ -1,7 +1,6 @@
 package com.example.demo.Service;
 
 
-import com.example.demo.model.Experimento;
 import com.example.demo.model.PesquisaProjeto;
 import com.example.demo.repository.PesquisaProjetoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,7 @@ import java.util.List;
 public class PesquisaProjetoService {
 
     @Autowired
-    private PesquisaProjetoRepository pesquisaProjetoRepository ;
+    public PesquisaProjetoRepository pesquisaProjetoRepository ;
 
 
         
@@ -35,8 +34,13 @@ public class PesquisaProjetoService {
         pesquisaProjetoRepository.deleteById(id);
     }
 
+    //deleteById
+    public void delete(PesquisaProjeto pesquisaProjeto){
+        pesquisaProjetoRepository.delete(pesquisaProjeto);
+    }
 
-    public void update(PesquisaProjeto pesquisaProjeto){
-        pesquisaProjetoRepository.save(pesquisaProjeto);
+
+    public PesquisaProjeto update(PesquisaProjeto pesquisaProjeto){
+       return  pesquisaProjetoRepository.save(pesquisaProjeto);
     }
  }
