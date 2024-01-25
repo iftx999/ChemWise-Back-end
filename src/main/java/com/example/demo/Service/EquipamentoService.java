@@ -16,17 +16,24 @@ public class EquipamentoService {
     @Autowired
     private EquipamentoRepository equipamentoRepository ;
 
+
+
+    public Equipamento findById(Long id){
+        return equipamentoRepository.findById(id).get();
+    }
     public List<Equipamento> findAll(){
         return equipamentoRepository.findAll(Sort.by("equipamento"));
     }
 
 
-    public void save(Equipamento equipamento){
-        equipamentoRepository.save(equipamento);
+    public Equipamento save(Equipamento equipamento){
+
+        return equipamentoRepository.save(equipamento);
     }
 
 
-    public void update(Equipamento equipamento){
-        equipamentoRepository.save(equipamento);
+    public Equipamento update(Equipamento equipamento){
+
+        return equipamentoRepository.save(equipamento);
     }
 }
