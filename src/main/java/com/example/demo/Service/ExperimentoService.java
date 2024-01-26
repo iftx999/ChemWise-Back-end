@@ -16,17 +16,20 @@ public class ExperimentoService {
     private ExperimentoRepository experimentoRepository ;
 
 
+    public Experimento findById(Long id){
+        return experimentoRepository.findById(id).get();
+    }
     public List<Experimento> findAll(){
         return experimentoRepository.findAll(Sort.by("experimento").
                 ascending());
     }
 
-   public void save(Experimento experimento){
-        experimentoRepository.save(experimento);
+   public Experimento save(Experimento experimento){
+       return experimentoRepository.save(experimento);
     }
 
-    public void update(Experimento experimento){
-        experimentoRepository.save(experimento);
+    public Experimento update(Experimento experimento){
+      return  experimentoRepository.save(experimento);
     }
     public void deleteById(Long id){
         experimentoRepository.deleteById(id);

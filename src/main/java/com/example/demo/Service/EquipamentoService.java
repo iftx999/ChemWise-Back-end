@@ -36,4 +36,8 @@ public class EquipamentoService {
 
         return equipamentoRepository.save(equipamento);
     }
+
+    public void deleteById(Long id){
+        equipamentoRepository.deleteById(id);
+    }
 }
