@@ -4,7 +4,10 @@ package com.example.demo.controller;
 import com.example.demo.Service.EquipamentoService;
 import com.example.demo.model.Equipamento;
 import com.example.demo.model.Experimento;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -22,8 +25,9 @@ public class EquipamentoController {
         Equipamento equipamento = equipamentoService.findById(id);
         return ResponseEntity.ok().body(equipamento);
     }
-    @PostMapping
-    public ResponseEntity<Equipamento> save(Equipamento equipamento){
+    @PostMapping(value = "/save")
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public ResponseEntity<Equipamento> save(@RequestBody  @Valid Equipamento equipamento){
         equipamento = equipamentoService.save(equipamento);
         return ResponseEntity.ok().body(equipamento);
     }
