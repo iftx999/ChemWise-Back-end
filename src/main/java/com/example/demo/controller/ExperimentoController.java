@@ -3,13 +3,18 @@ package com.example.demo.controller;
 
 import com.example.demo.Service.ExperimentoService;
 import com.example.demo.model.Experimento;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
-@RequestMapping("/experimento")
+@RequestMapping("api/experimento")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class ExperimentoController {
 
     @Autowired
@@ -22,7 +27,8 @@ public class ExperimentoController {
     }
 
     @PostMapping
-    public ResponseEntity<Experimento> save(Experimento experimento){
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public ResponseEntity<Experimento> save(@RequestBody  @Valid Experimento experimento){
        experimento = experimentoService.save(experimento);
         return ResponseEntity.ok().body(experimento);
     }
@@ -38,5 +44,12 @@ public class ExperimentoController {
     public ResponseEntity<Void> delete(@PathVariable Long id){
         experimentoService.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    //listar experimentos
+    @GetMapping
+    public ResponseEntity<List<Experimento>> findAll() {
+        List<Experimento> experimentos = experimentoService.findAll();
+        return ResponseEntity.ok().body(experimentos);
     }
 }

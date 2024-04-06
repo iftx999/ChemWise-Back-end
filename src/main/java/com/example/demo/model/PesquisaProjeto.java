@@ -14,12 +14,10 @@ public class PesquisaProjeto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
     @Length(max = 16)
     @Column(length = 100, nullable = false)
     private String nomeProjeto;
 
-    @NotNull
     @Length(max = 16)
     @Column(length = 100, nullable = false)
     private String descricao;

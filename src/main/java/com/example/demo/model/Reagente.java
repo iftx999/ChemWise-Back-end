@@ -22,7 +22,7 @@ public class Reagente {
     @NotNull
     @Length(max = 16)
     @Column(length = 100, nullable = false)
-    private String qtdDisponivel;
+    private Integer qtdDisponivel;
 
     @NotNull
     @Length(max = 16)

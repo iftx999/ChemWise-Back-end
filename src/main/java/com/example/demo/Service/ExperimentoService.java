@@ -1,6 +1,7 @@
 package com.example.demo.Service;
 
 
+import com.example.demo.model.Equipamento;
 import com.example.demo.model.Experimento;
 import com.example.demo.repository.ExperimentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +20,8 @@ public class ExperimentoService {
     public Experimento findById(Long id){
         return experimentoRepository.findById(id).get();
     }
-    public List<Experimento> findAll(){
-        return experimentoRepository.findAll(Sort.by("experimento").
-                ascending());
+
+    public List<Experimento> findAll() { return experimentoRepository.findAll(Sort.by( "id"));
     }
 
    public Experimento save(Experimento experimento){

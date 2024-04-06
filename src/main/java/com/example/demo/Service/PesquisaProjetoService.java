@@ -16,13 +16,7 @@ public class PesquisaProjetoService {
     public PesquisaProjetoRepository pesquisaProjetoRepository ;
 
 
-        
-  public List<PesquisaProjeto> findAll(){
-        return pesquisaProjetoRepository.findAll(Sort.by("pesquisaProjeto").
-                ascending());
-    }
-
-    public PesquisaProjeto findById(Long id){
+   public PesquisaProjeto findById(Long id){
         return pesquisaProjetoRepository.findById(id).get();
     }
 
@@ -42,5 +36,10 @@ public class PesquisaProjetoService {
 
     public PesquisaProjeto update(PesquisaProjeto pesquisaProjeto){
        return  pesquisaProjetoRepository.save(pesquisaProjeto);
+    }
+
+//findAll
+    public List<PesquisaProjeto> findAll() {
+        return pesquisaProjetoRepository.findAll(Sort.by("id"));
     }
  }

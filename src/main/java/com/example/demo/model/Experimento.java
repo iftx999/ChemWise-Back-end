@@ -12,22 +12,21 @@ import java.util.Date;
 public class Experimento {
 
     @Id
-    @Length(max = 16)
     @Column(unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    
 
-    @NotNull
+
     @Length(max = 16)
     @Column(length = 100, nullable = false)
     private String titulo;
 
-    @NotNull
     @Length(max = 16)
     @Column(length = 100, nullable = false)
     private String descricao;
 
-    private Date data;
+    private Date data_cadas;
 
 }
